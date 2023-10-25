@@ -1,23 +1,33 @@
 <script  lang="ts">
 
 
+
 import ProductDetails from './views/ProductDetails.vue'
+
+
 export default {
   components: {
     ProductDetails
   },
+
+   
   data() {
     return {
-      isDialogOpen: false
+      isDialogOpen: false,
+      
     };
   },
   methods: {
     openDialog() {
       this.isDialogOpen = !this.isDialogOpen;
+      
     },
     closeDialog() {
       this.isDialogOpen = false;
-    }
+    },
+
+
+   
   }
 };
 

@@ -29,7 +29,7 @@
   
   <script lang="ts">
   import { computed } from 'vue';
-  import { useApiStore } from './store'
+  
   export default {
     data() {
       return {
@@ -48,17 +48,10 @@
         ],
       };
     },
-    setup() {
-    const apiStore = useApiStore();
-    const apiData = computed(() => apiStore.getApiData);
+    
 
-    // Fetch the API data when the component is created
-    apiStore.fetchApiData();
+    
 
-    return {
-      apiData,
-    };
-  },
 
     methods: {
       prevSlide() {
@@ -130,7 +123,7 @@
     margin: 10px;
   }
   .product-slider{
-    border: #333 solid 1px;
+    /* border: #333 solid 1px; */
     width: 60vw;
   }
   </style>

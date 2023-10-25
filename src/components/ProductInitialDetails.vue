@@ -47,7 +47,7 @@
   </template>
   
   <script lang="ts">
-  import { store} from './store';
+  
   export default {
     name: 'ProductInitialDetails',
     data() {
@@ -102,7 +102,7 @@
   }
   
   .initial-details {
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     width: 100%; /* Make it 100% width to adapt to the screen size */
     max-width: 40vw; /* Add a max-width to limit the width on larger screens */
     height: 90vh;
