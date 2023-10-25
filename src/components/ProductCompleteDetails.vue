@@ -163,7 +163,7 @@ Need help finding your size? Click here for the size guide.</p>
   /* Style for the tab buttons */
 button {
     padding: 10px 20px;
-    background-color: #ccc; /* Grey background color */
+    background-color: rgb(239, 239, 239); /* Grey background color */
     border: none;
     cursor: pointer;
     font-weight: normal; /* Regular font weight */
@@ -177,14 +177,14 @@ button {
     font-weight: bold; /* Bold font weight for the active tab */
 }
 .completeDetailsContainer{
-  background-color: #ccc;
+  background-color: rgb(239, 239, 239);
 }
 
 /*test code*/
 
 /* Add some basic styling for the accordion */
 .accordion-button {
-  background: #f1f1f1;
+  background: rgb(239, 239, 239);
   color: #333;
   cursor: pointer;
   padding: 10px;

@@ -1,4 +1,4 @@
-<template>
+ <template>
     <div class="product-slider">
     <div class="image-slider">
       <div class="slider-container">
@@ -8,23 +8,37 @@
               <img :src="images[currentIndex]" alt="Slider Image">
             </div>
           </transition>
+          
         </div>
       </div>
       <div class="dots">
         <span v-for="(image, index) in images" :key="index" @click="goToSlide(index)" :class="{ active: index === currentIndex }"></span>
       </div>
-      <button @click="prevSlide">Previous</button>
-      <button @click="nextSlide">Next</button>
+      <button @click="prevSlide">&#60;</button>
+      <button @click="nextSlide">&#62;</button>
     </div>
-</div>
+</div> 
+ </template>
+
+
+
+
+
    
-  </template>
+ 
   
   <script lang="ts">
+  import { computed } from 'vue';
+  import { useApiStore } from './store'
   export default {
     data() {
       return {
         currentIndex: 0,
+        props: {
+ 
+},
+
+        
         images: [
           'https://media.soliver.com/i/soliver/2132263.98P1_outfit?bg=rgb(239,239,239)&qlt=default&fmt=auto&w=596',
           'https://media.soliver.com/i/soliver/2132263.98P1_flat?bg=rgb(239,239,239)&qlt=default&fmt=auto&w=596',
@@ -34,6 +48,18 @@
         ],
       };
     },
+    setup() {
+    const apiStore = useApiStore();
+    const apiData = computed(() => apiStore.getApiData);
+
+    // Fetch the API data when the component is created
+    apiStore.fetchApiData();
+
+    return {
+      apiData,
+    };
+  },
+
     methods: {
       prevSlide() {
         this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
