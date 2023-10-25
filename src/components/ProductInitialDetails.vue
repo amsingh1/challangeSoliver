@@ -2,10 +2,10 @@
    <template>
     <div class="initial-details">
       <div>
-        <p class="text ">Brand New</p>
-        <h3 class="py-3">Shirt</h3>
+        <p class="text font-semibold">Brand New</p>
+        <h3 class="py-3">{{ coats.productName }}</h3>
         <div class="price-logo ">
-          <h2>199.99 EUR</h2>
+          <h2 class="font-semibold">{{ coats.price }}</h2>
           <div class="w-20 h-20 rounded-full">
           <img
             src="https://www.soliver.cz/_nuxt/img/soliver.dfcb78d.svg"
@@ -16,13 +16,13 @@
         </div>
         <hr />
         <div class="flex-container py-2">
-          <h1>Color: </h1>
+          <h1>Color:&nbsp</h1>
           <p :style="{ fontWeight: 'bold' }"> Black</p>
         </div>
         <div class="blessed-div flex-container py-2">
           
           <img
-            v-for="(image, index) in colorImages"
+            v-for="(image, index) in coats.colorImages"
             :key="index"
             :src="image"
             alt="Description of the image"
@@ -30,11 +30,11 @@
           />
         </div>
         <div class="flex-container py-2">
-          <h1>Size:</h1>
-          <p :style="{ fontWeight: 'bold' }">xxl</p>
+          <h1>Size:&nbsp</h1>
+          <p :style="{ fontWeight: 'bold' }">XL</p>
         </div >
         <div class="blessed-div flex-container py-2">
-          <span v-for="(size, index) in sizes" :key="index" class="padded-span">
+          <span v-for="(size, index) in coats.sizes" :key="index" class="padded-span">
             <p>{{ size }}</p>
           </span>
         </div>
@@ -47,8 +47,19 @@
   </template>
   
   <script lang="ts">
+
+import type {Coat} from '../interface'
+import type { PropType } from 'vue';
   
   export default {
+ 
+    props: {
+    coats: {  
+      type:Object as PropType<Coat>,
+      default: {},
+    },
+  },
+
     name: 'ProductInitialDetails',
     data() {
       return {

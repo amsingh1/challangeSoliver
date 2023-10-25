@@ -1,6 +1,6 @@
 <template>
     <div class="footer">
-      <div class="label">Shirt</div>
+      <div class="label">{{coats.productName}}</div>
       <button class="button flex items-center w-48 justify-between">
   Add to Cart
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ml-2">
@@ -11,8 +11,21 @@
     </div>
   </template>
   
-  <script>
+  <script lang="ts">
+      import type {Coat} from '../interface'
+import type { PropType } from 'vue';
   export default {
+
+
+  
+  
+ 
+    props: {
+    coats: {  
+      type:Object as PropType<Coat>,
+      default: {},
+    },
+  },
     name: 'Footer',
   };
   </script>
